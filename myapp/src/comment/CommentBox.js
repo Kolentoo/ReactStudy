@@ -30,13 +30,21 @@ class CommentBox extends React.Component{
         //     }
         // })
     }
+    handleCommentSubmit(comment){
+        let comments = this.state.data
+        let newComments = comments.concat(comment);
+        this.setState({
+            data:newComments
+        })
+        console.log(newComments)
+    }
     render(){
         return(
             <div className="comments">
                 <h1>评论</h1>
                 <div className="divider">内容</div>
                 <CommentList data={this.state.data}/>
-                <CommentForm />
+                <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this)}/>
             </div>
         );
     }

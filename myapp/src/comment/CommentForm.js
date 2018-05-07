@@ -5,7 +5,9 @@ class CommentForm extends React.Component{
         event.preventDefault();
         let author = this.refs.author.value;
         let text = this.refs.text.value;
-        console.log(author,text)
+        this.props.onCommentSubmit({
+            author,text
+        });
     }
     render(){
         return(
